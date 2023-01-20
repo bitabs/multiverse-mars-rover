@@ -1,0 +1,9 @@
+{
+  "name": "multiverse-mars-rover",
+  "scripts": {
+    "start": "bun src/index.ts"
+  },
+  "devDependencies": {
+    "bun-types": "^0.3.0"
+  }
+}
