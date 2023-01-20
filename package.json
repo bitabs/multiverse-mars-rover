@@ -1,9 +1,15 @@
 {
   "name": "multiverse-mars-rover",
   "scripts": {
-    "start": "bun src/index.ts"
+    "start": "bun src/index.ts",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch"
   },
   "devDependencies": {
-    "bun-types": "^0.3.0"
+    "@types/jest": "^29.2.6",
+    "bun-types": "^0.3.0",
+    "jest": "^29.3.1",
+    "ts-jest": "^29.0.5",
+    "typescript": "^4.9.4"
   }
 }

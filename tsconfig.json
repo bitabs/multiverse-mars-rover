@@ -12,8 +12,9 @@
     "forceConsistentCasingInFileNames": true,
     "allowJs": true,
     "types": [
-      "bun-types" // add Bun global
+      "bun-types", // add Bun global
+      "jest"
     ]
   },
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "coverage", "**/*.test.ts", "jest.config.js"]
 }
