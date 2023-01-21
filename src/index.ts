@@ -1,3 +1,4 @@
+import { Grid } from './components'
 import { groupBy, transform } from './helpers'
 
 // we'll use text file for our inputs
@@ -16,7 +17,9 @@ let data = groupBy(input, (val) => val !== '')
 // by x2 new lines - see input text file
 for (let i = 0; i < data.length; i++) {
   // transform the raw data
-  const { grid, robots } = transform(data[i])
+  const { grid: rawGrid, robots: rawRobots } = transform(data[i])
+
+  const [x, y] = rawGrid.map(Number)
 
   // TODO: Given the grid & robots, implement update
 }

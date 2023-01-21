@@ -87,6 +87,7 @@ export function transform(data: string[]) {
 
   const grid = extractGridFromInput(rawGrid)
 
+  // Runs in O(m). i.e. m number of robots
   const robots = extractRobotsFromInput(rawRobots)
 
   return { grid, robots }
