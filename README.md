@@ -25,9 +25,10 @@ Mars.
 - Can robots encounter obstacles? i.e. other robots?
 - What happens if a robot receives a command that is not supported?
 - What happens if a robot hasn't landed? (i.e. initial coordinates of robot is not valid)
-- What happens if the robot is a complete **bimbo** (i.e the orientation isn't valid)?
+- What happens if the robot is a complete **bimbo**? (i.e the orientation isn't valid)
 - Do we have any limitations? i.e. program should run in O(n)? I don't think thats possible since each robot can have m number of commands? Maybe O(nm)?
 - Can grid coordinates have negative values?
+- Why doesn't the robot support backwards?
 
 ## Getting Started
 
