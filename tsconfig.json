@@ -8,13 +8,20 @@
     "downlevelIteration": true,
     "skipLibCheck": true,
     "jsx": "preserve",
+    "baseUrl": ".",
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "allowJs": true,
     "types": [
       "bun-types", // add Bun global
       "jest"
-    ]
+    ],
+    "paths": {
+      "@utils": ["src/utils"],
+      "@utils/*": ["src/utils/*"],
+      "@components": ["src/components"],
+      "@components/*": ["src/components/*"]
+    }
   },
   "exclude": ["node_modules", "coverage", "**/*.test.ts", "jest.config.js"]
 }

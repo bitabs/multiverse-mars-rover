@@ -42,7 +42,7 @@ export function extractGridFromInput(str: string) {
   return grid
 }
 
-interface RobotsDTO {
+interface RobotDTO {
   coordinates: {
     x: string
     y: string
@@ -52,7 +52,7 @@ interface RobotsDTO {
 }
 
 export function extractRobotsFromInput(data: string[]) {
-  const robots: RobotsDTO[] = []
+  const robots: RobotDTO[] = []
 
   if (data.length < 1)
     throw Error('Robot must have correct coordinates + instructions')
