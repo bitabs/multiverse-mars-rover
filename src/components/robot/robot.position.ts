@@ -20,12 +20,7 @@ export function isValidStatus(arg: any): arg is STATUS {
 }
 
 export function isValidCommand(char: any): char is COMMAND {
-  return [
-    COMMAND.F,
-    COMMAND.R,
-    // COMMAND.B,
-    COMMAND.L,
-  ].includes(char)
+  return [COMMAND.F, COMMAND.R, COMMAND.B, COMMAND.L].includes(char)
 }
 
 export function rotate(
@@ -52,22 +47,25 @@ export function rotate(
 }
 
 export function move(
-  robot: [number, number, DIRECTION]
+  robot: [number, number, DIRECTION],
+  command?: COMMAND
 ): [number, number, DIRECTION] {
   let [x, y, face] = robot
 
+  const commandValue = command === COMMAND.B ? -1 : +1
+
   switch (face) {
     case DIRECTION.North:
-      y = y + 1
+      y = y + commandValue
       break
     case DIRECTION.East:
-      x = x + 1
+      x = x + commandValue
       break
     case DIRECTION.South:
-      y = y - 1
+      y = y - commandValue
       break
     case DIRECTION.West:
-      x = x - 1
+      x = x - commandValue
       break
     default:
       break
@@ -100,7 +98,10 @@ export function Position({ commands, grid, robot }: PositionProps) {
         newPosition = rotate(newPosition, COMMAND.L)
         break
       case COMMAND.F:
-        newPosition = move(newPosition)
+        newPosition = move(newPosition, COMMAND.F)
+        break
+      case COMMAND.B:
+        newPosition = move(newPosition, COMMAND.B)
         break
       default:
         break

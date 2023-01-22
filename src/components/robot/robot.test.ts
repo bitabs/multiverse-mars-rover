@@ -370,7 +370,7 @@ describe('[Robot]', () => {
       expect(position).toBe('(5, 5, N) LOST')
     })
 
-    test.skip("Initiating with 'B'", () => {
+    test("Initiating with 'B'", () => {
       robot = new Robot([5, 5], {
         x: '5',
         y: '5',

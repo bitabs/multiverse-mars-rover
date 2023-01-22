@@ -28,7 +28,7 @@ Mars.
 - What happens if the robot is a complete **bimbo**? (i.e the orientation isn't valid)
 - Do we have any limitations? i.e. program should run in O(n)? I don't think thats possible since each robot can have m number of commands? Maybe O(nm)?
 - Can grid coordinates have negative values? - For the sake of this challenge, I have excluded this use-case
-- Why doesn't the robot support backwards?
+- Why doesn't the robot support backwards? - I've added this functionality
 
 ## Getting Started
 
