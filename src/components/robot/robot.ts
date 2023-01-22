@@ -1,14 +1,16 @@
 import { isNumeric, isObjEmpty } from '@utils'
-import { isValidDirection, isValidStatus } from './robot.position'
+import { GridProps } from '../grid'
+import { isValidDirection, isValidStatus, Position } from './robot.position'
 import * as Types from './robot.types'
 
 export class Robot {
   private x: number
   private y: number
   private face: Types.DIRECTION
-  private state: Types.StateProps
+  private status: Types.STATUS
+  private grid: GridProps
 
-  constructor(props: Types.RobotProps) {
+  constructor(grid: GridProps, props: Types.RobotProps) {
     // make sure we don't pass empty props
     if (typeof props == 'undefined' || isObjEmpty(props) || !props)
       throw Error(`Must pass correct props to Robot`)
@@ -16,13 +18,11 @@ export class Robot {
     // convert data to correct typing
     const { x, y, face, status } = this.validate(props)
 
-    // getter accessors
+    this.grid = grid
     this.x = x
     this.y = y
     this.face = face
-
-    // keep track of current robot state
-    this.state = { x, y, face, status }
+    this.status = status
   }
 
   private validate({ x, y, face, status }: Types.RobotProps) {
@@ -45,7 +45,26 @@ export class Robot {
   }
 
   public initiateCommands(commands: string[]) {
-    // Not implemented
+    const x = this.x
+    const y = this.y
+    const face = this.face
+
+    // updates the robot to the new position
+    const { isValid, robot } = Position({
+      robot: [x, y, face],
+      grid: this.grid,
+      commands,
+    })
+
+    this.face = robot[2] // face
+
+    // don't update pos, but set status to lost
+    if (!isValid) {
+      this.status = Types.STATUS.LOST
+    }
+
+    this.x = robot[0] // x
+    this.y = robot[1] // y
   }
 
   public get getX() {
@@ -61,18 +80,13 @@ export class Robot {
   }
 
   public get getCurrentStatus() {
-    return this.state.status
-  }
-
-  private get getState() {
-    return this.state
+    return this.status
   }
 
   public toString() {
-    const { x, y, face, status } = this.getState
+    if (this.status === Types.STATUS.LOST)
+      return `(${this.x}, ${this.y}, ${this.face}) LOST`
 
-    if (status === Types.STATUS.LOST) return `(${x}, ${y}, ${face}) LOST`
-
-    return `(${x}, ${y}, ${face})`
+    return `(${this.x}, ${this.y}, ${this.face})`
   }
 }

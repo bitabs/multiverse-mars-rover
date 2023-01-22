@@ -1,3 +1,5 @@
+import { GridProps } from '../grid'
+
 export const enum STATUS {
   LOST = 'LOST',
 }
@@ -29,4 +31,10 @@ export interface StateProps {
   y: number
   face: DIRECTION
   status?: STATUS
+}
+
+export interface PositionProps {
+  robot: [number, number, DIRECTION]
+  grid: GridProps
+  commands: string[]
 }
