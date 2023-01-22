@@ -122,21 +122,23 @@ describe('[Helpers]', () => {
   describe('extractRobotsFromInput()', () => {
     describe('Robots', () => {
       test('Passing argument as an empty list', () => {
-        expect(() => extractRobotsFromInput([])).toThrow(
+        const failed = () => extractRobotsFromInput([])
+
+        expect(failed).toThrow(
           'Robot must have correct coordinates + instructions'
         )
       })
 
       test('Not providing robot instructions', () => {
-        expect(() => extractRobotsFromInput(['d'])).toThrow(
-          'Could not extract robots instructions'
-        )
+        const failed = () => extractRobotsFromInput(['d'])
+
+        expect(failed).toThrow('Could not extract robots instructions')
       })
 
       test('Passing coordinates in the wrong format', () => {
-        expect(() => extractRobotsFromInput(['0 0 0 LF'])).toThrow(
-          'Could not extract robots instructions'
-        )
+        const failed = () => extractRobotsFromInput(['0 0 0 LF'])
+
+        expect(failed).toThrow('Could not extract robots instructions')
       })
 
       test("Passing argument as '(x, x, x) xxxx' format", () => {
@@ -193,9 +195,9 @@ describe('[Helpers]', () => {
       })
 
       test('There is no grid', () => {
-        expect(() => transform([''])).toThrow(
-          'Data is either not an array or in wrong format'
-        )
+        const failed = () => transform([''])
+
+        expect(failed).toThrow('Data is either not an array or in wrong format')
       })
 
       test('The grid is 4x3 with 1 robot (3 3 E) LF', () => {

@@ -22,7 +22,7 @@ Mars.
 
 ## Questions
 
-- Can robots encounter obstacles? i.e. other robots?
+- Can robots encounter obstacles? i.e. other robots? I'm assuming we don't as part of this challenge
 - What happens if a robot receives a command that is not supported?
 - What happens if a robot hasn't landed? (i.e. initial coordinates of robot is not valid)
 - What happens if the robot is a complete **bimbo**? (i.e the orientation isn't valid)

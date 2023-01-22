@@ -3,5 +3,10 @@
 (0, 2, N) FFLFRFF
 
 4 8
-(2, 3, E) LFRFF
-(0, 2, N) FFLFRFF
+(2, 3, N) FLLFR
+(1, 0, S) FFRLF
+
+5 5
+(2, 3, W) FFFRRRF
+(2, 3, S) FLLLLFF
+(2, 3, E) LLLFRFF

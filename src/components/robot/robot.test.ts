@@ -34,48 +34,48 @@ describe('[Robot]', () => {
       })
 
       test("Throw error related to 'x' value", () => {
-        expect(
-          () =>
-            new Robot([0, 0], {
-              x: 'd',
-              y: '0',
-              face: 'W',
-            })
-        ).toThrow("Robot's x coordinate 'd' is not valid")
+        const failed = () =>
+          new Robot([0, 0], {
+            x: 'd',
+            y: '0',
+            face: 'W',
+          })
+
+        expect(failed).toThrow("Robot's x coordinate 'd' is not valid")
       })
 
       test("Throw error related to 'y' value", () => {
-        expect(
-          () =>
-            new Robot([0, 0], {
-              x: '0',
-              y: 'bar',
-              face: 'W',
-            })
-        ).toThrow("Robot's y coordinate 'bar' is not valid")
+        const failed = () =>
+          new Robot([0, 0], {
+            x: '0',
+            y: 'bar',
+            face: 'W',
+          })
+
+        expect(failed).toThrow("Robot's y coordinate 'bar' is not valid")
       })
 
       test("Throw error related to 'face' value", () => {
-        expect(
-          () =>
-            new Robot([0, 0], {
-              x: '0',
-              y: '0',
-              face: 'foo',
-            })
-        ).toThrow("Robot's direction 'foo' is not valid")
+        const failed = () =>
+          new Robot([0, 0], {
+            x: '0',
+            y: '0',
+            face: 'foo',
+          })
+
+        expect(failed).toThrow("Robot's direction 'foo' is not valid")
       })
 
       test("Throw error related to 'status' value", () => {
-        expect(
-          () =>
-            new Robot([0, 0], {
-              x: '0',
-              y: '0',
-              face: 'W',
-              status: 'WRONG',
-            })
-        ).toThrow("Robot's status 'WRONG' is not valid")
+        const failed = () =>
+          new Robot([0, 0], {
+            x: '0',
+            y: '0',
+            face: 'W',
+            status: 'WRONG',
+          })
+
+        expect(failed).toThrow("Robot's status 'WRONG' is not valid")
       })
     })
 
